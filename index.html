@@ -548,12 +548,148 @@
     }
 
     @media (max-width: 768px) {
+      .container {
+        padding: 0 16px;
+      }
+
+      header {
+        height: 64px;
+      }
+
+      .logo {
+        font-size: 16px;
+      }
+
+      .logo-dot {
+        font-size: 10px;
+        margin: 0 2px;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .btn {
+        font-size: 10px;
+        padding: 6px 12px;
+      }
+
       h1 {
-        font-size: 60px;
+        font-size: 48px;
+        margin-bottom: 16px;
       }
 
       h2 {
-        font-size: 32px;
+        font-size: 28px;
+        margin-bottom: 20px;
+      }
+
+      section {
+        padding: 40px 0;
+      }
+
+      .hero {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+
+      .tag-badge {
+        font-size: 9px;
+        padding: 8px 10px;
+        margin-bottom: 16px;
+      }
+
+      .description {
+        font-size: 14px;
+        line-height: 1.6;
+        margin-bottom: 24px;
+      }
+
+      .meta-footer {
+        flex-direction: column;
+        gap: 12px;
+        font-size: 11px;
+      }
+
+      .metrics-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px 16px;
+        padding: 40px 0;
+      }
+
+      .metric-value {
+        font-size: 48px;
+      }
+
+      .metric-label {
+        font-size: 10px;
+      }
+
+      .metric-desc {
+        font-size: 11px;
+      }
+
+      .section-header {
+        margin-bottom: 32px;
+      }
+
+      .section-label {
+        font-size: 9px;
+        margin-bottom: 6px;
+      }
+
+      .section-title {
+        font-size: 24px;
+      }
+
+      .argument-item {
+        gap: 16px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+
+      .argument-number {
+        font-size: 13px;
+        min-width: auto;
+      }
+
+      .argument-content h3 {
+        font-size: 16px;
+        margin-bottom: 6px;
+      }
+
+      .argument-content p {
+        font-size: 13px;
+        line-height: 1.6;
+      }
+
+      .code-inline {
+        font-size: 11px;
+        padding: 2px 6px;
+      }
+
+      .cards-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding: 40px 0;
+      }
+
+      .card {
+        padding: 20px;
+      }
+
+      .card-kicker {
+        font-size: 9px;
+        margin-bottom: 8px;
+      }
+
+      .card h3 {
+        font-size: 16px;
+        margin-bottom: 6px;
+      }
+
+      .card p {
+        font-size: 13px;
       }
 
       .transfer-grid {
@@ -561,16 +697,255 @@
         gap: 40px;
       }
 
-      nav {
-        display: none;
+      .steps-list {
+        gap: 0;
+      }
+
+      .step {
+        gap: 16px;
+        padding: 16px 0;
+      }
+
+      .step-number {
+        font-size: 13px;
+        min-width: 30px;
+      }
+
+      .step h4 {
+        font-size: 15px;
+        margin-bottom: 2px;
+      }
+
+      .step p {
+        font-size: 13px;
+      }
+
+      .closing-section {
+        padding: 60px 0;
+      }
+
+      .closing-section h2 {
+        font-size: 28px;
+        max-width: none;
+      }
+
+      .closing-section p {
+        font-size: 14px;
+        max-width: none;
+      }
+
+      .contact-actions {
+        flex-direction: column;
+      }
+
+      .contact-actions a {
+        width: 100%;
+      }
+
+      .signature-name {
+        font-size: 18px;
+      }
+
+      footer .container {
+        flex-direction: column;
+        gap: 12px;
+        font-size: 11px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 12px;
+      }
+
+      header {
+        height: 56px;
+      }
+
+      .logo {
+        font-size: 14px;
+      }
+
+      .logo-dot {
+        font-size: 9px;
+        margin: 0 1px;
+      }
+
+      .btn {
+        font-size: 9px;
+        padding: 5px 10px;
+      }
+
+      h1 {
+        font-size: 36px;
+        margin-bottom: 12px;
+      }
+
+      h2 {
+        font-size: 22px;
+        margin-bottom: 16px;
+      }
+
+      section {
+        padding: 32px 0;
+      }
+
+      .hero {
+        padding-top: 48px;
+        padding-bottom: 32px;
+      }
+
+      .tag-badge {
+        font-size: 8px;
+        padding: 6px 8px;
+        margin-bottom: 12px;
+      }
+
+      .description {
+        font-size: 13px;
+        margin-bottom: 20px;
+      }
+
+      .meta-footer {
+        gap: 10px;
+        font-size: 10px;
+        margin-top: 12px;
+        padding-top: 12px;
+      }
+
+      .metrics-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 32px 0;
+      }
+
+      .metric-value {
+        font-size: 36px;
+        margin-bottom: 4px;
+      }
+
+      .metric-label {
+        font-size: 9px;
+      }
+
+      .metric-desc {
+        font-size: 10px;
+      }
+
+      .section-header {
+        margin-bottom: 24px;
+      }
+
+      .section-label {
+        font-size: 8px;
+        letter-spacing: 0.15em;
+      }
+
+      .section-title {
+        font-size: 20px;
       }
 
       .argument-item {
-        gap: 20px;
+        gap: 12px;
+        padding-top: 16px;
+        padding-bottom: 16px;
       }
 
       .argument-number {
-        min-width: auto;
+        font-size: 12px;
+      }
+
+      .argument-content h3 {
+        font-size: 15px;
+      }
+
+      .argument-content p {
+        font-size: 12px;
+        line-height: 1.5;
+      }
+
+      .code-inline {
+        font-size: 10px;
+        padding: 2px 4px;
+      }
+
+      .cards-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding: 32px 0;
+      }
+
+      .card {
+        padding: 16px;
+      }
+
+      .card-kicker {
+        font-size: 8px;
+        margin-bottom: 6px;
+      }
+
+      .card h3 {
+        font-size: 14px;
+        margin-bottom: 4px;
+      }
+
+      .card p {
+        font-size: 12px;
+        line-height: 1.5;
+      }
+
+      .transfer-grid {
+        gap: 32px;
+      }
+
+      .step {
+        gap: 12px;
+        padding: 12px 0;
+      }
+
+      .step-number {
+        font-size: 12px;
+      }
+
+      .step h4 {
+        font-size: 14px;
+      }
+
+      .step p {
+        font-size: 12px;
+      }
+
+      .closing-section {
+        padding: 48px 0;
+      }
+
+      .closing-section h2 {
+        font-size: 24px;
+      }
+
+      .closing-section p {
+        font-size: 13px;
+      }
+
+      .contact-actions {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .contact-actions a {
+        width: 100%;
+        padding: 10px 16px;
+        font-size: 12px;
+      }
+
+      .signature-name {
+        font-size: 16px;
+      }
+
+      footer .container {
+        flex-direction: column;
+        gap: 10px;
+        font-size: 10px;
       }
     }
   </style>
