@@ -3,7 +3,7 @@
   "rewrites": [
     {
       "source": "/",
-      "destination": "/graf-ia-br.dc.html"
+      "destination": "/index.html"
     }
   ],
   "headers": [

@@ -1,0 +1,844 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: #FFFFFF;
+      color: #0c0d0e;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      font-feature-settings: "cv02", "cv03", "cv04", "cv11", "liga", "kern";
+    }
+
+    ::selection {
+      background-color: #0c0d0e;
+      color: #ffffff;
+    }
+
+    a {
+      color: #2563eb;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      opacity: 0.8;
+    }
+
+    .container {
+      max-width: 896px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(228, 228, 231, 0.6);
+      height: 80px;
+      display: flex;
+      align-items: center;
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      gap: 24px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: baseline;
+      gap: 0;
+      font-weight: 700;
+      font-size: 20px;
+      letter-spacing: -0.02em;
+    }
+
+    .logo-graf, .logo-br {
+      color: #0c0d0e;
+    }
+
+    .logo-dot {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      font-weight: 600;
+      color: #2563eb;
+      margin: 0 4px;
+    }
+
+    nav {
+      display: flex;
+      gap: 36px;
+      font-size: 12px;
+      font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #71717a;
+    }
+
+    nav a {
+      color: #71717a;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: #0c0d0e;
+    }
+
+    .nav-hidden {
+      display: none;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 500;
+      padding: 8px 16px;
+      border: 1px solid rgba(12, 13, 14, 0.2);
+      border-radius: 9999px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn:hover {
+      border-color: #0c0d0e;
+      background-color: #0c0d0e;
+      color: white;
+    }
+
+    main {
+      font-feature-settings: "cv02", "cv03", "cv04", "cv11", "liga", "kern";
+    }
+
+    section {
+      padding: 64px 0;
+      border-bottom: 1px solid rgba(228, 228, 231, 0.6);
+    }
+
+    .hero {
+      padding-top: 80px;
+      padding-bottom: 64px;
+    }
+
+    .tag-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 24px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: #71717a;
+      border: 1px solid #e4e4e7;
+      padding: 10px 12px;
+      border-radius: 6px;
+      background: #fafafa;
+    }
+
+    h1 {
+      font-size: 120px;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      margin-bottom: 24px;
+      color: #0c0d0e;
+    }
+
+    h1 span {
+      color: #2563eb;
+    }
+
+    h2 {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-size: 48px;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+      margin-bottom: 32px;
+      color: #0c0d0e;
+    }
+
+    .underline-serif {
+      text-decoration: underline;
+      text-decoration-color: #e4e4e7;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 32px;
+    }
+
+    .description {
+      max-width: 512px;
+      font-size: 16px;
+      line-height: 1.625;
+      color: #71717a;
+      font-weight: 400;
+      margin-bottom: 40px;
+      letter-spacing: -0.02em;
+    }
+
+    .description strong {
+      color: #0c0d0e;
+      font-weight: 500;
+    }
+
+    .cta-area {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background-color: #0c0d0e;
+      color: white;
+      border: 1px solid #0c0d0e;
+    }
+
+    .btn-primary:hover {
+      background-color: #2563eb;
+      border-color: #2563eb;
+    }
+
+    .meta-info {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: #71717a;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .meta-footer {
+      margin-top: 56px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(228, 228, 231, 0.4);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: space-between;
+      align-items: center;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: #71717a;
+    }
+
+    .status-dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #10b981;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 32px;
+      padding: 64px 0;
+      background: rgba(250, 250, 250, 0.4);
+    }
+
+    .metric {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .metric-value {
+      font-family: 'Instrument Serif', serif;
+      font-size: 96px;
+      font-weight: 400;
+      line-height: 1;
+      color: #0c0d0e;
+      margin-bottom: 8px;
+    }
+
+    .metric-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #71717a;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .metric-desc {
+      font-size: 12px;
+      color: rgba(113, 113, 122, 0.8);
+      font-weight: 400;
+    }
+
+    .section-header {
+      margin-bottom: 56px;
+    }
+
+    .section-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: #71717a;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #0c0d0e;
+    }
+
+    .arguments-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .argument-item {
+      display: flex;
+      gap: 40px;
+      padding-top: 32px;
+      padding-bottom: 32px;
+      border-top: 1px solid #e4e4e7;
+    }
+
+    .argument-item:last-child {
+      border-bottom: 1px solid #e4e4e7;
+    }
+
+    .argument-number {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14px;
+      font-weight: 600;
+      color: #71717a;
+      min-width: 40px;
+    }
+
+    .argument-content h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #0c0d0e;
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+
+    .argument-content p {
+      font-size: 14px;
+      line-height: 1.7;
+      color: #71717a;
+      font-weight: 400;
+      max-width: 512px;
+    }
+
+    .code-inline {
+      font-family: 'JetBrains Mono', monospace;
+      background: #fafafa;
+      padding: 4px 8px;
+      border-radius: 4px;
+      border: 1px solid #e4e4e7;
+      color: #0c0d0e;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      padding: 80px 0;
+    }
+
+    .card {
+      padding: 28px;
+      background: white;
+      border: 1px solid #e4e4e7;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+      transition: all 0.2s;
+    }
+
+    .card:hover {
+      border-color: #0c0d0e;
+    }
+
+    .card-kicker {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #2563eb;
+      font-weight: 600;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #0c0d0e;
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      font-size: 14px;
+      line-height: 1.6;
+      color: #71717a;
+    }
+
+    .transfer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .steps-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+
+    .step {
+      display: flex;
+      gap: 20px;
+      padding: 20px 0;
+      border-top: 1px solid #e4e4e7;
+    }
+
+    .step:last-child {
+      border-bottom: 1px solid #e4e4e7;
+    }
+
+    .step-number {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14px;
+      font-weight: 700;
+      color: #0c0d0e;
+      min-width: 44px;
+    }
+
+    .step h4 {
+      font-size: 16px;
+      font-weight: 700;
+      color: #0c0d0e;
+      margin-bottom: 4px;
+    }
+
+    .step p {
+      font-size: 14px;
+      line-height: 1.65;
+      color: #71717a;
+    }
+
+    .closing-section {
+      padding: 96px 0;
+      border: none;
+    }
+
+    .closing-section h2 {
+      font-size: 42px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-style: normal;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 24px;
+      max-width: 320px;
+    }
+
+    .closing-section p {
+      font-size: 16px;
+      line-height: 1.65;
+      color: #71717a;
+      max-width: 416px;
+      margin-bottom: 32px;
+    }
+
+    .contact-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+
+    .signature {
+      padding-top: 24px;
+      border-top: 1px solid #e4e4e7;
+    }
+
+    .signature-name {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-size: 20px;
+      color: #0c0d0e;
+      margin-bottom: 4px;
+    }
+
+    .signature-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: #71717a;
+    }
+
+    footer {
+      padding: 40px 0;
+      border-top: 1px solid #e4e4e7;
+      background: white;
+    }
+
+    footer .container {
+      display: flex;
+      gap: 16px;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      align-items: center;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: #71717a;
+    }
+
+    footer strong {
+      color: #0c0d0e;
+      font-weight: 600;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 60px;
+      }
+
+      h2 {
+        font-size: 32px;
+      }
+
+      .transfer-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .argument-item {
+        gap: 20px;
+      }
+
+      .argument-number {
+        min-width: auto;
+      }
+    }
+  </style>
+</helmet>
+
+<div>
+  <!-- Header -->
+  <header>
+    <div class="container" style="width: 100%; display: flex; justify-content: space-between; align-items: center;">
+      <div class="logo">
+        <span class="logo-graf">graf</span>
+        <span class="logo-dot">.</span>
+        <span class="logo-dot" style="color: #2563eb; margin: 0;">ia</span>
+        <span class="logo-dot">.</span>
+        <span class="logo-br">br</span>
+      </div>
+      <nav>
+        <a href="#argumentos">Argumentos</a>
+        <a href="#para-quem">Para quem é</a>
+        <a href="#como-funciona">Como funciona</a>
+      </nav>
+      <button class="btn">Contato Direto</button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <div class="tag-badge">
+          <span>DOMÍNIO PREMIUM &amp; PLATAFORMA EDITORIAL</span>
+        </div>
+
+        <h1>graf<span>.</span>ia<span>.</span>br</h1>
+
+        <h2>Leia em voz alta: <span class="underline-serif">{{nomePrononciado}}</span></h2>
+
+        <p class="description">Um nome curto, real e brasileiro na única extensão que já diz o que a sua empresa faz: <strong>.ia.br</strong>. Quatro letras antes do ponto, zero explicação necessária, e uma palavra completa quando lido por inteiro.</p>
+
+        <div class="cta-area">
+          <div class="cta-buttons">
+            <a href="#contato" class="btn btn-primary">Fazer proposta neste domínio</a>
+          </div>
+          <span class="meta-info">
+            <span>Transferência imediata • Registro.br certificado</span>
+          </span>
+        </div>
+
+        <div class="meta-footer">
+          <p>Valor sob consulta — Processo direto com o proprietário</p>
+          <div>
+            <span class="status-dot"></span>
+            <span style="color: #0c0d0e; font-weight: 600;">Disponível para aquisição definitiva</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Metrics -->
+    <section style="padding: 0; border: none;">
+      <div class="container">
+        <div class="metrics-grid">
+          <div class="metric">
+            <div class="metric-value">4</div>
+            <div class="metric-label">Letras no Radical</div>
+            <div class="metric-desc">Sem abreviações ou cortes</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">.ia.br</div>
+            <div class="metric-label">Extensão de IA no Brasil</div>
+            <div class="metric-desc">A sigla tecnológica de maior valor</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">1</div>
+            <div class="metric-label">Único no Mundo</div>
+            <div class="metric-desc">Ativo singular, não renovável</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">0</div>
+            <div class="metric-label">Hífen, Número ou Erro</div>
+            <div class="metric-desc">Fluidez total na digitação</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Arguments Section -->
+    <section id="argumentos">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">CINCO MOTIVOS</span>
+          <h2 style="font-family: 'Plus Jakarta Sans', sans-serif; font-style: normal; font-size: 32px;">Por que este é um domínio excepcional</h2>
+        </div>
+
+        <div class="arguments-list">
+          <div class="argument-item">
+            <div class="argument-number">01</div>
+            <div class="argument-content">
+              <h3>Um domain hack que forma palavra legítima</h3>
+              <p><span class="code-inline">graf</span> + <span class="code-inline">ia</span> = <strong style="color: #0c0d0e;">{{nomePrononciado}}</strong>. O ponto desaparece na leitura natural, o nome soa como uma palavra oficial do português e ainda entrega a sigla mais valiosa do mercado contemporâneo.</p>
+            </div>
+          </div>
+
+          <div class="argument-item">
+            <div class="argument-number">02</div>
+            <div class="argument-content">
+              <h3>A extensão já posiciona o negócio</h3>
+              <p>Em <strong style="color: #0c0d0e;">.ia.br</strong> você não precisa de tagline secundária para explicar a categoria. O endereço transmite inteligência artificial, computação de ponta e base nacional automaticamente.</p>
+            </div>
+          </div>
+
+          <div class="argument-item">
+            <div class="argument-number">03</div>
+            <div class="argument-content">
+              <h3>"Graf" carrega múltiplos significados nobres</h3>
+              <p>Grafo (dados estruturados), gráfico (design e visualização) e grafia (linguagem e texto). Três dos territórios mais disputados da IA generativa cabem no mesmo radical — a marca expande com a empresa.</p>
+            </div>
+          </div>
+
+          <div class="argument-item">
+            <div class="argument-number">04</div>
+            <div class="argument-content">
+              <h3>Curto o suficiente para virar marca icônica</h3>
+              <p>Quatro letras, sem hífen, sem dígitos. Cabe perfeitamente em um logotipo, numa rede social, numa camiseta — <span class="code-inline">oi@graf.ia.br</span> é uma das assinaturas mais sofisticadas do mercado.</p>
+            </div>
+          </div>
+
+          <div class="argument-item">
+            <div class="argument-number">05</div>
+            <div class="argument-content">
+              <h3>Nomes assim só ficam mais caros</h3>
+              <p>A fila por radicais curtos em IA aumenta a cada rodada de venture capital. Cada palavra nobre registrada não volta ao mercado primário. Comprar agora custa uma fração do que custa depois.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Use Cases -->
+    <section id="para-quem" style="background: rgba(250, 250, 250, 0.3);">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">PARA QUEM É</span>
+          <h2 style="font-family: 'Plus Jakarta Sans', sans-serif; font-style: normal; font-size: 32px;">Negócios que já valem mais com este endereço</h2>
+        </div>
+
+        <div class="cards-grid">
+          <div class="card">
+            <span class="card-kicker">DADOS</span>
+            <h3>Grafos e conhecimento</h3>
+            <p>Knowledge graphs, RAG avançado e busca semântica corporativa. "Graf" é o vocabulário nativo de arquiteturas modernas de inteligência de dados.</p>
+          </div>
+
+          <div class="card">
+            <span class="card-kicker">DESIGN</span>
+            <h3>Geração de imagem</h3>
+            <p>Estúdios, gráficas digitais e ferramentas de criação visual com IA — da peça vetorial na tela ao arquivo final para impressão industrial.</p>
+          </div>
+
+          <div class="card">
+            <span class="card-kicker">TEXTO</span>
+            <h3>Escrita e revisão</h3>
+            <p>Correção editorial, redação assistida e processamento de linguagem natural: grafia correta é literalmente o core business.</p>
+          </div>
+
+          <div class="card">
+            <span class="card-kicker">CONSULTORIA</span>
+            <h3>Agência ou estúdio</h3>
+            <p>Um endereço que passa autoridade técnica no primeiro segundo de contato, sem necessidade de rodeios ou explicações.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="como-funciona">
+      <div class="container">
+        <div class="transfer-grid">
+          <div>
+            <div class="section-header">
+              <span class="section-label">COMO FUNCIONA</span>
+              <h2 style="font-family: 'Plus Jakarta Sans', sans-serif; font-style: normal; font-size: 32px; margin-bottom: 20px;">Transferência simples</h2>
+              <p style="font-size: 14px; color: #71717a; margin-bottom: 16px;">Sem intermediário obrigatório, sem taxas ocultas. Se preferir, utilizamos serviço de custódia da sua escolha — o que for mais seguro para ambas as partes.</p>
+              <div style="padding: 16px; border-radius: 8px; background: #fafafa; border: 1px solid #e4e4e7; display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #71717a;">
+                ID Registro.br pronto para cessão imediata.
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="steps-list">
+              <div class="step">
+                <span class="step-number">01</span>
+                <div>
+                  <h4>Você inicia o contato</h4>
+                  <p>Conte sobre o projeto e envie sua oferta. Resposta direta em poucas horas.</p>
+                </div>
+              </div>
+
+              <div class="step">
+                <span class="step-number">02</span>
+                <div>
+                  <h4>Alinhamento de valor</h4>
+                  <p>PIX à vista, contrato formal ou plataforma de custódia segura. Parcelamento aceito mediante contrato corporativo.</p>
+                </div>
+              </div>
+
+              <div class="step">
+                <span class="step-number">03</span>
+                <div>
+                  <h4>Cessão para seu CNPJ</h4>
+                  <p>Transferência no Registro.br em minutos, com acompanhamento técnico até a confirmação na sua conta.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Closing CTA -->
+    <section class="closing-section">
+      <div class="container" style="max-width: 512px;">
+        <h2>Um domínio destes tem exatamente um comprador certo.</h2>
+        <p>Se você chegou até aqui, provavelmente é você. Mande uma mensagem direta — mesmo que seja só para entender valores e condições.</p>
+
+        <div class="contact-actions">
+          <a href="mailto:contato@graf.ia.br?subject=Interesse%20no%20dom%C3%ADnio%20graf.ia.br" class="btn btn-primary">Enviar Proposta</a>
+          <a href="{{ waLink }}" target="_blank" rel="noopener noreferrer" class="btn" style="border: 1px solid #e4e4e7;">WhatsApp Direto</a>
+        </div>
+
+        <div class="signature">
+          <div class="signature-name">{{nomeContato}}</div>
+          <div class="signature-title">Proprietário &amp; Titular do Domínio</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p><strong>graf.ia.br</strong> — domínio único disponível para venda definitiva. Negociação direta.</p>
+      <p>Registro.br • Brasil • Todos os direitos reservados.</p>
+    </div>
+  </footer>
+</div>
+
+</x-dc>
+
+<script data-dc-script data-props='{"nomePrononciado":{"editor":"text","default":"grafia"},"nomeContato":{"editor":"text","default":"Gustavo"},"telefoneLabel":{"editor":"text","default":"(16) 99752-0110"},"whatsappNumero":{"editor":"text","default":"5516997520110"}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const p = this.props;
+    const nomeContato = p.nomeContato ?? "Gustavo";
+    const telefoneLabel = p.telefoneLabel ?? "(16) 99752-0110";
+    const numero = (p.whatsappNumero ?? "5516997520110").replace(/\D/g, "");
+    const msg = "Olá " + nomeContato + "! Vi a página do domínio graf.ia.br e queria conversar sobre a compra.";
+
+    return {
+      nomePrononciado: p.nomePrononciado ?? "grafia",
+      nomeContato,
+      telefoneLabel,
+      waLink: "https://wa.me/" + numero + "?text=" + encodeURIComponent(msg),
+    };
+  }
+}
+</script>
+</body>
+</html>
