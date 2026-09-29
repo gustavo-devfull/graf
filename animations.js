@@ -421,12 +421,13 @@ if (ctaSvg) {
     }
   });
 
-  // Após construção: rotação lenta + flutuação contínua
+  // Após construção: pulse suave + flutuação contínua
   gsap.to(ctaSvg, {
-    rotation: 360,
-    duration: 30,
+    scale: 1.08,
+    duration: 2,
     repeat: -1,
-    ease: 'none',
+    yoyo: true,
+    ease: 'sine.inOut',
     delay: 2.5
   });
 
